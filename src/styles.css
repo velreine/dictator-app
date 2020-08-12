@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.container > .row {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.left-0 {
+    left: 0;
+}

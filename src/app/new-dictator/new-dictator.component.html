@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3>Create new Dictator:</h3>
+            <form #loginForm="ngForm" (ngSubmit)="onLoginSubmit()">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" [(ngModel)]="firstName"  id="firstName">
+                </div>
+            
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" name="lastName" [(ngModel)]="lastName" id="lastName"> 
+            </div>
+                
+                <div class="form-group">
+                    <label for="birthYear">Birth Year</label>
+                    <input type="number" class="form-control" [(ngModel)]="birthYear"  min="0" max="2020" name="birthYear" id="birthYear">
+                </div>    
+            
+                <div class="form-group">
+                    <label for="deathYear">Death Year</label>
+                    <input type="number" class="form-control" [(ngModel)]="deathYear" name="deathYear" id="deathYear"> 
+                </div>
+            
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" [(ngModel)]="description"  name="description" id="description">
+                </div> 
+            
+                <input type="submit" class="btn btn-primary form-control" name="submit" id="submit" value="Create"> 
+            </form>
+        </div>
+        <div class="col-6">
+
+            <div *ngIf="Dictators.length > 0">
+                <h3>List of Current Dictators:</h3>
+                <!-- <ul> -->
+                <div *ngFor="let dictator of Dictators">
+                    <div class="border-bottom border-secondary">
+                        <div class="d-block">
+                            <span>{{ dictator.firstName }} {{ dictator.lastName }}</span>
+                            <button class="btn btn-sm btn-danger float-right" (click)="removeDictator(dictator.uuid)" >X</button>
+                        </div>
+                        <p>Born: {{ dictator.birthYear }} Dead: {{ dictator.deathYear }}</p>
+                        <label for="description">Description:</label>
+                        <p name="description" readonly="true" aria-readonly="true" id="description" cols="30" rows="10">
+                            {{ dictator.description }}
+                        </p>
+                    </div>    
+                </div>
+                <!-- </ul> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
